@@ -12,10 +12,17 @@ app.get("/", (req, res) => {
   res.json(data);
 });
 
-app.get("/items/:id", (req, res) => {
-  const id = Number(req.params.id);
-  res.send(data[id]);
-});
+app.get(
+  "/items/:id",
+  (req, res, next) => {
+    const id = Number(req.params.id);
+    res.send(data[id]);
+    next();
+  },
+  () => {
+    console.log(`Data has been sent...`);
+  }
+);
 
 // opening the port and listening to the requests
 app.listen(PORT, () => {

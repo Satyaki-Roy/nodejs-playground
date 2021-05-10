@@ -12,7 +12,6 @@ app.use(express.static("public"));
 app.use("/images", express.static("images"));
 
 // middleware to serve favicon
-console.log(__dirname);
 app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
 // middleware to parse JSON data

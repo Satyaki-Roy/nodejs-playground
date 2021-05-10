@@ -24,6 +24,21 @@ app.get(
   }
 );
 
+app
+  .route("/items")
+  .get((req, res) => {
+    res.send(`response from GET /items`);
+  })
+  .post((req, res) => {
+    res.send(`response from POST /items`);
+  })
+  .put((req, res) => {
+    res.send(`response from PUT /items`);
+  })
+  .delete((req, res) => {
+    res.send(`response from DELETE /items`);
+  });
+
 // opening the port and listening to the requests
 app.listen(PORT, () => {
   console.log(`Your server is running on port ${PORT}`);
